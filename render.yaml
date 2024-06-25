@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: django-calculator
+    env: python
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn calculator_project.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: django-insecure-38vl#oy7$nu&ob+)ja8@*4s&)*km*q)98uaghol+gm99+(s3n$
+      - key: DJANGO_DEBUG
+        value: false
