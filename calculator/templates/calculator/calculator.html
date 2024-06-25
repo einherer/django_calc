@@ -1,0 +1,17 @@
+{% extends "calculator/base.html" %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block content %}
+<h2>Calculator</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Calculate</button>
+</form>
+{% if result %}
+    <p>Result: {{ result }}</p>
+{% elif error %}
+    <p>Error: {{ error }}</p>
+{% endif %}
+{% endblock %}

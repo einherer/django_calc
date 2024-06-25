@@ -1,0 +1,10 @@
+{% extends "calculator/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Calculator</h1>
+{% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+{% endif %}
+{% endblock %}
